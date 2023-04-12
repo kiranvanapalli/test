@@ -1,0 +1,71 @@
+<div class="container mt-2">
+  <div class="col-md-12 col-lg-12 row">
+    <div class="col-lg-4 col-md-4 color fw-semibold">
+      <h2>Weather in your city</h2>
+    </div>
+    <div class="col-lg-6 col-md-6 mt-2">
+      <form [formGroup]="weatherForm" class="row">
+        <div class="col-lg-4">
+          <input class="form-control bordercolor" type="text" id="cityName" formControlName="cityName"
+            placeholder="Enter City Name" [ngClass]="{ 'is-invalid': submitted && f.cityName.errors }">
+            <div class="invalid-feedback" *ngIf="submitted && f.cityName.errors?.required">Enter City Name
+            </div>
+        </div>
+        <div class="col-lg-4">
+          <button class="btn btn-primary" (click)="submit()"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+              height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg> Search</button>
+
+        </div>
+        <div class="col-lg-2 loading" *ngIf="loading">
+          <div class="overlay-container">
+            <div class="loader-card">
+              <div class="loader-card-body">
+                <div class="d-flex">
+                  <div class="spinner-border" role="status"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row mt-3" style="margin-top: 60px;">
+    <div class="col-lg-3"*ngFor="let item of list" >
+      <table class="table table-bordered" style="width:100%">
+        <thead>
+          <tr>
+            <th class="tg-nltl text-center tablecolor" colspan="2">Date: {{item.dt_txt|date: 'dd/MM/yyyy hh:mm:a'}}</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr>
+            <td class="tg-0lax text-center background" colspan="2">
+              Temperature
+            </td>
+          </tr>
+          <tr class="text-center background">
+            <td class="tg-0lax">Min</td>
+            <td class="tg-0lax">Max</td>
+          </tr>
+          <tr class="background">
+            <td class="tg-0lax">{{item.main['temp_min']}}</td>
+            <td class="tg-0lax">{{item.main['temp_max']}}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Pressure</td>
+            <td class="tg-0lax">{{item.main['pressure']}}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Humidity</td>
+            <td class="tg-0lax">{{item.main['humidity']}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p *ngIf="showNoRecords">No Results Found</p>
+  </div>
+</div>
