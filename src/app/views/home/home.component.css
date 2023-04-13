@@ -1,31 +1,44 @@
-.color
-{
-  color:#f29766
+.color {
+  color: #f29766
 }
 
-.bordercolor{
+.bordercolor {
   border-color: #f29766;
 }
 
-.btn-primary
-{
-  background:#f29766
+.btn-primary {
+  background: #f29766
 }
 
-.loading
-{
+.loading {
   margin-left: -116px;
   margin-top: 3px;
 }
 
-th, td,tr {
+th,
+td,
+tr {
   border-color: black;
   border: 1px solid black;
 }
-.tablecolor
-{
+
+.tablecolor {
   background: #f29766
 }
+
 .background {
   background: #969aa5;
+}
+
+@media only screen and (max-width: 768px) {
+  .mobile h2 {
+    text-align: center;
+  }
+
+  .mobile {
+
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem !important;
+  }
 }

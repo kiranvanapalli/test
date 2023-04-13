@@ -1,6 +1,6 @@
 <div class="container mt-2">
   <div class="col-md-12 col-lg-12 row">
-    <div class="col-lg-4 col-md-4 color fw-semibold">
+    <div class="col-lg-4 col-md-4 color fw-semibold mobile">
       <h2>Weather in your city</h2>
     </div>
     <div class="col-lg-6 col-md-6 mt-2">
@@ -11,7 +11,7 @@
             <div class="invalid-feedback" *ngIf="submitted && f.cityName.errors?.required">Enter City Name
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-12 mobile">
           <button class="btn btn-primary" (click)="submit()"><svg xmlns="http://www.w3.org/2000/svg" width="16"
               height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
               <path
