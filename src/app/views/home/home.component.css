@@ -11,7 +11,7 @@
 }
 
 .loading {
-  margin-left: -116px;
+  margin-left: -77px;
   margin-top: 3px;
 }
 
@@ -41,4 +41,5 @@ tr {
     justify-content: center;
     margin-top: 1rem !important;
   }
+
 }

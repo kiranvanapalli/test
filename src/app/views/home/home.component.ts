@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   list: any;
   showNoRecords: boolean = false;
   submitted:boolean = false
+  errorMessage: any;
 
   constructor(private fb:FormBuilder,private api:WetherservicesService){
 
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
   submit()
   {
     this.submitted = true;
+    this.showTable = false
     if(this.weatherForm.invalid)
     {
       return
@@ -52,15 +54,23 @@ export class HomeComponent implements OnInit {
         this.showTable = true
         this.showNoRecords = false
       }
-    },(err) =>{
-      console.log(err);
+      else if(res.cod ===  '404')
+      {
+        this.loading = false
+        this.showTable = false
+        this.showNoRecords = true
+      }
 
-        if(err)
-        {
-          this.loading = false
-          this.showTable = false
-          this.showNoRecords = true
-        }
+    },(err) =>{
+
+      this.errorMessage = err;
+      if(this.errorMessage != null)
+      {
+        this.list = [];
+        this.loading = false
+        this.showTable = false
+        this.showNoRecords = true
+      }
     })
   }
 
