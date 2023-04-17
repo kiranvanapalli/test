@@ -34,11 +34,11 @@
     </div>
   </div>
   <div class="row mt-3" style="margin-top: 60px;">
-    <div class="col-lg-3"*ngFor="let item of list" >
+    <div class="col-lg-3"*ngFor="let item of dataList;let i = index" >
       <table class="table table-bordered" style="width:100%">
         <thead>
           <tr>
-            <th class="tg-nltl text-center tablecolor" colspan="2">Date: {{item.dt_txt|date: 'dd/MM/yyyy hh:mm:a'}}</th>
+            <th class="tg-nltl text-center tablecolor" colspan="2">Date: {{item.date|date: 'dd/MM/yyyy'}}</th>
           </tr>
         </thead>
         <tbody class="text-center">
@@ -52,16 +52,16 @@
             <td class="tg-0lax">Max</td>
           </tr>
           <tr class="background">
-            <td class="tg-0lax">{{item.main['temp_min']}}</td>
-            <td class="tg-0lax">{{item.main['temp_max']}}</td>
+            <td class="tg-0lax">{{item.wetherInfo.main['temp_min']}}</td>
+            <td class="tg-0lax">{{item.wetherInfo.main['temp_max']}}</td>
           </tr>
           <tr>
             <td class="tg-0lax">Pressure</td>
-            <td class="tg-0lax">{{item.main['pressure']}}</td>
+            <td class="tg-0lax">{{item.wetherInfo.main['pressure']}}</td>
           </tr>
           <tr>
             <td class="tg-0lax">Humidity</td>
-            <td class="tg-0lax">{{item.main['humidity']}}</td>
+            <td class="tg-0lax">{{item.wetherInfo.main['humidity']}}</td>
           </tr>
         </tbody>
       </table>
